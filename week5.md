@@ -2,14 +2,10 @@
 
 ## Questions and Troubleshooting
 
-- Persistent problems with Atom or the VM?
-- Regex mastery?
-- Anything still confusing?
-
-## Time to finish in-class assignment (30 mins)
-
-- Regex practice using Origin of Species from last week.
-- Email answers to me (jembrown@lsu.edu) when you're done.
+- Sublime and Visual Studio Code
+- Nuances of regex with grep and sed
+- Regex assignment now due Tuesday (Sept. 25th)
+- If your VM has trouble with its internet connection, try removing and re-adding your network adapter
 
 ## Introduction to scripts
 
@@ -148,3 +144,22 @@
         else
           echo "a is NOT less than 3."
         fi
+
+## Week 5 Assignment (due Thursday, Sept. 27th)
+
+Your assignment for this week is to create a script that does something useful. You get to pick what the goal of your program is, but it must satisfy these requirements:
+
+- Must be a bash script
+- Must accept an arbitrary number of command-line arguments
+- Must include at least one for loop
+- Must include at least one if...else statement
+
+The assignment steps are:
+
+- Start by forking the week 5 repository
+- Clone it to your computer and create a branch with your name
+- Create a file to hold your bash script (ending with `.sh`). Save it with a name that has something to do with its purpose.
+- Write your code in your script file.
+- Commit your file to your branch
+- Push your new branch to your fork
+- Submit a pull request for your new branch from your fork to the class repository
