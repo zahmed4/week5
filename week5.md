@@ -1,4 +1,4 @@
-# Week 5 Outline
+# Week 5 Outline (Bash scripting)
 
 ## Questions and Troubleshooting
 
@@ -137,13 +137,45 @@
 
  - There are lots of different ways to compare values, depending on what type of values you're working with. Here is a page that lists several options: [Bash comparison operators](http://tldp.org/LDP/abs/html/comparison-ops.html)
  - Here's one example:
+        # Defining value of numeric variable
         a=2
-        if [ "$a" -lt 3 ]
+
+        # if...else to see if value of number is at least 3
+        if [ $a -lt 3 ]  # Note: this could also be (($a < 3))
         then
-          echo "a is less than 3."
+          echo "$a is less than 3."
         else
-          echo "a is NOT less than 3."
+          echo "$a is NOT less than 3."
         fi
+ - Here's another example where we compare word lengths and pass the first word on the command line:
+        # Recording length of word provided on command line
+        # What's going on with the backticks (``) here?
+        myWordLength=`echo -n $1 | wc -m`
+
+        # if...else to see if word is at least 5 characters
+        if [ $myWordLength -lt 5 ]
+        then
+          echo "$1 is shorter than 5 characters."
+        else
+          echo "$1 is at least 5 characters in length."
+        fi
+
+
+- [ ] Additional command-line utilities
+  - There are more command line utilities to help process files that could prove useful, especially as you begin to create workflows in scripts.
+  - `cut` can be used to extract columns from files. For instance, if we go back to one of the files we used last week to look at lake temperatures (`FILE="Strdln_Twater_090611-090828_corrd_sm.csv"`)
+    - `tail -n +2 $FILE | head -n 10 | cut -f 3 -d ";"` - This uses tail to extract all lines starting at line 2, then uses head to keep only the first 10 of those lines, then uses cut to extract the 3rd column delimited by a semicolon (;).
+  - `sort` can be used to sort values in a column. The `-n` flag sorts based on numeric value (rather than alphabetically).
+    - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20` - What would this do?
+    - The `-r` flag to sort will reverse the order of sorting. So, what would this do?
+      - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -nr | head -n 20`
+      - What could we learn by comparing the output of these two commands?
+  - `uniq` is also a useful utility. It will remove _consecutive, duplicate_ lines. This can be very powerful when combined with sort. For instance, compare the output from these lines:
+    - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20`
+    - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq`
+    - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq | wc -l`
+    - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq -c`
+    - Use `uniq`'s man page to figure out what the `-c` flag does.
 
 ## Week 5 Assignment (due Thursday, Sept. 27th)
 
