@@ -1,4 +1,4 @@
-# Week 5 Outline (Bash scripting)
+# Weeks 5 and 6 Outline (Bash scripting)
 
 ## Questions and Troubleshooting
 
@@ -6,6 +6,10 @@
 - Nuances of regex with grep and sed
 - Regex assignment now due Tuesday (Sept. 25th)
 - If your VM has trouble with its internet connection, try removing and re-adding your network adapter
+
+- To pull latest changes from class repo:
+  - `git remote add class <HTTPS_URL_TO_CLASS_REPO>`
+  - `git pull class master`
 
 ## Introduction to scripts
 
@@ -161,6 +165,13 @@
         fi
 
 
+- [ ] Flow control with while
+  -
+
+- [ ] Math in bash (one way)
+  - In general, bash isn't very good for mathematical operations
+  - But it can be done, and there are several ways to do it
+
 - [ ] Additional command-line utilities
   - There are more command line utilities to help process files that could prove useful, especially as you begin to create workflows in scripts.
   - `cut` can be used to extract columns from files. For instance, if we go back to one of the files we used last week to look at lake temperatures (`FILE="Strdln_Twater_090611-090828_corrd_sm.csv"`)
@@ -176,6 +187,8 @@
     - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq | wc -l`
     - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq -c`
     - Use `uniq`'s man page to figure out what the `-c` flag does.
+
+## In-Class Assignments - Thursday, Sept. 27th
 
 ## Week 5 Assignment (due Thursday, Sept. 27th)
 
