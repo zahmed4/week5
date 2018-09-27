@@ -145,7 +145,7 @@
         a=2
 
         # if...else to see if value of number is at least 3
-        if [ $a -lt 3 ]  # Note: this could also be (($a < 3))
+        if [ $a -lt 3 ]  # Note: this could also be ((a < 3))
         then
           echo "$a is less than 3."
         else
@@ -253,7 +253,7 @@
     - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq -c`
     - Use `uniq`'s man page to figure out what the `-c` flag does.
 
-## In-Class Assignment - Thursday, Sept. 27th
+## Week 6 Assignment (due Tuesday, Oct. 2nd)
 
 Be sure to include comments with the code you write for each of these!
 
