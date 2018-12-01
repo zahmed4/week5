@@ -1,4 +1,4 @@
-# Weeks 5 and 6 Outline (Bash scripting)
+# Week 5 Outline (Bash scripting)
 
 ## Questions and Troubleshooting
 
@@ -6,10 +6,6 @@
 - Nuances of regex with grep and sed
 - Regex assignment now due Tuesday (Sept. 25th)
 - If your VM has trouble with its internet connection, try removing and re-adding your network adapter
-
-- To pull latest changes from class repo:
-  - `git remote add class <HTTPS_URL_TO_CLASS_REPO>`
-  - `git pull class master`
 
 ## Introduction to scripts
 
@@ -145,7 +141,6 @@
         a=2
 
         # if...else to see if value of number is at least 3
-
         if [ $a -lt 3 ]  # Note: this could also be (($a < 3))
         then
           echo "$a is less than 3."
@@ -166,78 +161,6 @@
         fi
 
 
-- [ ] Math in bash (one way)
-  - In general, bash isn't very good for mathematical operations, but it can be done in several ways
-  - Probably the easiest is to wrap a mathematical expression in _double_ parentheses and precede it with a `$`, since you pretty much always want the _value_ of the mathematical result
-    - `echo $(( 2 + 2 ))`
-      - `myNum = $(( 2 + 2 ))`
-    - `echo $(( 3 * 6 ))`
-    - `echo $(( 20 / 3 ))`
-    - `echo $(( 20 % 3 ))`
-    - Compare the output of these last two lines? What's going on?
-  - NOTE: bash can only handle _integers_ and not floating-point numbers (i.e., decimals)
-  - Try this. What happens?
-    - `myVar=3`
-    - `echo $myVar`
-    - `((myVar++))`
-    - `echo $myVar`
-    - `((myVar++))`
-    - `echo $myVar`
-  - What does the `++` operator do?
-  - The double parentheses notation can also be used to write a `for` loop in a different way:
-        for ((i=1;i<=10;i++))
-        do
-            echo $i
-        done
-    - When written this way the `for` loop statement has a structure like this:
-        - `for (( <START_VALUE> ; <STOP_CONDITION> ; <LOOP_UPDATE>))`
-  - NOTE: You _don't_ precede variables with `$` inside double parentheses
-
-
-- [ ] Flow control with while
-  - Another flow control structure is a `while` loop
-  - A `while` loop just has a single condition that it waits to be satisfied before exiting
-  - `while` loops are somewhat more flexible than `for` loops, because they can run for a variable number of iterations, depending on the conditions.
-  - WARNING: Because `while` loops don't automatically
-        i=1
-        while [ $i -lt 11 ]
-        do
-            echo $i
-            (( i++ ))
-        done
-  - OR
-        i=1
-        while (( i<11 ))
-        do
-            echo $i
-            (( i++ ))
-        done
-
-
-- [ ] Reading in values interactively
-  - You can accept values directly from users by using `read`. In general, you'll want to prompt the user, then follow the prompt with `read <VARIABLE>`. Whatever the user types in will be stored in that variable.
-  - Here's basic usage:
-        echo -n "Please type your name: "
-        read name
-        echo "Hello, "$name
-  - Here's an application that uses a while loop:
-        echo "Try to guess the word I'm thinking of: "
-        read word
-        while [ $word != "tigers" ]
-        do
-            echo "Try again to guess the word: "
-            read word
-        done
-        echo "You finally got it!"
-
-
-- [ ] Using a while loop to read values from a file
-  - You can send the contents of a file into a `while` loop that uses `read` to go through lines in a file one-by-one.
-        while read line
-        do
-            echo $line
-        done < "$1"
-
 - [ ] Additional command-line utilities
   - There are more command line utilities to help process files that could prove useful, especially as you begin to create workflows in scripts.
   - `cut` can be used to extract columns from files. For instance, if we go back to one of the files we used last week to look at lake temperatures (`FILE="Strdln_Twater_090611-090828_corrd_sm.csv"`)
@@ -253,17 +176,6 @@
     - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq | wc -l`
     - `tail -n +2 $FILE | cut -f 3 -d ";" | sort -n | head -n 20 | uniq -c`
     - Use `uniq`'s man page to figure out what the `-c` flag does.
-
-## Week 6 Assignment (due Tuesday, Oct. 2nd)
-
-Be sure to include comments with the code you write for each of these!
-
-(1) Write a script that uses a `for` loop to read a series of integers from the command line. The script should both (a) count the number of values less than 10 and (b) add all the numbers together. Both values should be printed to the screen.
-
-(2) Write a script that does the same thing as (1), but reads the values from a file.
-
-(3) Write a script that reads in two columns of numbers from a file. The columns are separated by a tab. Have it output any lines where the first column contains a number greater than 10 and the second column contains a number less than 10. HINT: there are multiple ways to do this.
-
 
 ## Week 5 Assignment (due Thursday, Sept. 27th)
 

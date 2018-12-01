@@ -1,0 +1,11 @@
+ #!/bin/bash
+
+for number in 1 2 3 4 5 6 7 8 9 10
+do
+	if [$number -gt 0]
+	then
+		echo="Your number is positive!"
+	else 
+		echo="Your number is negative!"
+	fi
+done 
