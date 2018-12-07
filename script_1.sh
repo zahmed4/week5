@@ -15,3 +15,6 @@ do
 done
 echo "Total numbers less than 10: " $count
 echo "Sum of all numbers entered: " $Sum
+
+# DB: Good! But maybe easier to just read numbers as command-line arguments, rather than
+#     prompting and waiting.
