@@ -6,5 +6,5 @@ echo "Enter name of file that has numbers separated by spaces: "
 read fileName
 cat $fileName | ./script_1.sh
 
-# DB: Good idea, but this will only work if script_1.sh accepts numbers as command-line arguments.
-#     Since you prompt and wait, you can't just pipe into that script.
+# DB: Good idea, but this will only work if script_1.sh accepts numbers as command-line 
+#     arguments and you structured it like this: ./script_1.sh `cat $fileName`.
