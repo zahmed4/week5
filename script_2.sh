@@ -6,3 +6,4 @@ echo "Enter name of file that has numbers separated by spaces: "
 read fileName
 cat $fileName | ./script_1.sh
 
+# DB: Good!

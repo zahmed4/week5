@@ -9,3 +9,6 @@ do
 		echo "Your number" $number " is negative or 0!"
 	fi
 done 
+
+# JB: This looks good! The only thing that's missing is the ability to accept an arbitrary
+#     number of command-line arguments.
